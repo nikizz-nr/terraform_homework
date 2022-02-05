@@ -15,6 +15,3 @@ variable "db_password" {
     sensitive = true
     description = "Database password"
 }
-
-variable "key" {
-}
