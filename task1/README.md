@@ -1,2 +1,6 @@
-Apply to get list of vpcs, subnets and security groups.
-You need to specify 'region' variable to get lists.
+#Terraform. Задание 1.
+Скачать последнюю версию terraform.  
+Написать terraform манифест, который с помощью data source сущностей получает из облака информацию о AWS VPC/Azure virtual network, subnets и security groups.  
+Вывести в оутпут имена AWS VPC/Azure virtual network, subnets и security groups.  
+## Решение
+Применить конфигурацию terraform. Для работы необходимо задать регион (например в terraform.tfvars).
