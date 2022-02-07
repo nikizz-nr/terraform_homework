@@ -6,6 +6,11 @@ variable "owner" {
     description = "Object owner for tag"
 }
 
+# variable "subnet_list" {
+#     description = "Subnet list name"
+#     type = list
+# }
+
 variable "db_user" {
     sensitive = true
     description = "Database username"

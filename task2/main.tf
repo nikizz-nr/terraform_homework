@@ -12,7 +12,7 @@ provider "aws" {
   region = var.region
   default_tags {
     tags = {
-      Owner = var.owner
+      owner = var.owner
     }
   }
 }
@@ -26,7 +26,7 @@ data "aws_ami" "image" {
   owners = ["amazon"]
 }
 
-resource "aws_instance" "test-nginx" {
+resource "aws_instance" "homework-instance" {
   ami = data.aws_ami.image.image_id
   instance_type = "t2.micro"
   user_data = <<EOF
@@ -40,19 +40,20 @@ EOF
   tags = {
     Name = "terraform-homework-instance"
   }
+  volume_tags = {
+    owner = var.owner
+  }
 }
 
-resource "aws_db_instance" "test-database" {
-  allocated_storage    = 10
+resource "aws_db_instance" "homework-database" {
+  allocated_storage    = 5
   engine               = "mysql"
   engine_version       = "8.0.27"
   instance_class       = "db.t2.micro"
-  name                 = "database1"
+  identifier           = "terraform-homework-db"
+  name                 = "homework_database"
   username             = var.db_user
   password             = var.db_password
   skip_final_snapshot  = true
   backup_retention_period = 0
-  tags = {
-    Name = "terraform-homework-rds"
-  }
 }
